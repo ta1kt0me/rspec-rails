@@ -31,10 +31,6 @@ in_root do
     append_to_file('Gemfile', "gem 'rails-controller-testing', :git => 'https://github.com/rails/rails-controller-testing'\n")
   end
 
-  if Rails::VERSION::STRING >= '5.1.0'
-    append_to_file('Gemfile', "gem 'chromedriver-helper', :group => :test\n")
-  end
-
   if Rails::VERSION::STRING >= '5.2.0'
     copy_file sqlite_initializer, 'config/initializers/sqlite3_fix.rb'
   end
