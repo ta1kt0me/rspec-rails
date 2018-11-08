@@ -75,6 +75,10 @@ module RSpec
 
         attr_reader :driver
 
+        if ::Rails.version.to_f == 5.1
+          ActionDispatch::SystemTesting::Server.silence_puma = true
+        end
+
         def initialize(*args, &blk)
           super(*args, &blk)
           @driver = nil
